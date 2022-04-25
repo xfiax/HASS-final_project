@@ -34,14 +34,13 @@
 
         var data = {};
         for (const key in data1) {
-            if (data1[key].level_1 == 'Total' && data1[key].value != "100") {
+            if (data1[key].level_1 == 'Highest Qualification Attained of Main Income Earner - Post Secondary (Non-Tertiary)' && data1[key].value != "100") {
 
                 data[data1[key].level_2] = data1[key].value;
                 Number(data[data1[key].level_2]);
             }
         }
 
-        var totalA = d3
         console.log(data)
 
 
@@ -74,5 +73,6 @@
             .attr("stroke", "black")
             .style("stroke-width", "1px")
             .style("opacity", 0.7)
+
     })
 </script>
