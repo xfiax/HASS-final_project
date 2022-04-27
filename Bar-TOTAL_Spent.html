@@ -29,7 +29,7 @@
             "translate(" + margin.left + "," + margin.top + ")");
 
     // Parse the Data
-    d3.csv("https://raw.githubusercontent.com/xfiax/HASS-final_project/main/average-spent-highest-qualification-attained.csv", function(data) {
+    d3.csv("https://raw.githubusercontent.com/xfiax/HASS-final_project/main/TOTAL-spent-highest-qualification-attained.csv", function(data) {
 
 
         //console.log(data1[2].level_2)
@@ -50,7 +50,7 @@
 
         // Add Y axis
         var y = d3.scaleLinear()
-            .domain([0, 200000])
+            .domain([0, 120000])
             .range([(height-100), 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
