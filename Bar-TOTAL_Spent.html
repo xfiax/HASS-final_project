@@ -29,35 +29,16 @@
             "translate(" + margin.left + "," + margin.top + ")");
 
     // Parse the Data
-    d3.csv("https://raw.githubusercontent.com/xfiax/HASS-final_project/main/resident-households-by-type-of-dwelling-total-and-hqa-of-head-of-household.csv", function(data) {
-
-        var data1 = [];
-        for (const key in data) {
-            if (data[key].level_2 == 'Total') {
-                level_1 = data[key].level_1;
-
-                data1.push({
-                    level_1: level_1,
-                    value: data[key].value        
-                });
-                console.log(data[key].value)
-            }
-        }
-
-        // for (const key in data1) {
-        //     console.log(data1[key])
-        // }
-
-        //console.log(data)
-       
+    d3.csv("https://raw.githubusercontent.com/xfiax/HASS-final_project/main/average-spent-highest-qualification-attained.csv", function(data) {
 
 
+        //console.log(data1[2].level_2)
 
         // X axis
         var x = d3.scaleBand()
             .range([0, width])
-            .domain(data1.map(function(d) {
-                return d.level_1;
+            .domain(data.map(function(d) {
+                return d.level_2;
             }))
             .padding(0.2);
         svg.append("g")
@@ -69,18 +50,18 @@
 
         // Add Y axis
         var y = d3.scaleLinear()
-            .domain([0, 1500])
+            .domain([0, 200000])
             .range([(height-100), 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
 
         // Bars
         svg.selectAll("mybar")
-            .data(data1)
+            .data(data)
             .enter()
             .append("rect")
             .attr("x", function(d) {
-                return x(d.level_1);
+                return x(d.level_2);
             })
             .attr("y", function(d) {
                 return y(d.value);
@@ -89,7 +70,7 @@
             .attr("height", function(d) {
                 return (height-100) - y(d.value);
             })
-            .attr("fill", "#333300")
+            .attr("fill", "#00cc33")
 
     })
 </script>
