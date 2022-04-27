@@ -29,36 +29,26 @@
             "translate(" + margin.left + "," + margin.top + ")");
 
     // Parse the Data
-    d3.csv("https://raw.githubusercontent.com/xfiax/HASS-final_project/main/distribution-of-mhe-by-type-of-goods-and-services-broad-1-and-hqa-of-main-income-earner.csv", function(data) {
+    d3.csv("https://raw.githubusercontent.com/xfiax/HASS-final_project/main/average-mhi-by-highest-qualification-attained-of-main-income-earner-and-type-of-dwelling.csv", function(data) {
 
         var data1 = [];
         for (const key in data) {
-            if (data[key].level_2 == 'ALCOHOLIC BEVERAGES AND TOBACCO') {
-                level_1 = data[key].level_1;
-                if (level_1.indexOf('-') > 0) {
-                    level_1 = level_1.substr(level_1.indexOf('-'));
-                }
-                data1.push({
-                    value: data[key].value,
-                    level_1: level_1
+            if (data[key].level_1 == 'Total') {
+                level_2 = data[key].level_2;
+                    data1.push({
+                    level_2: level_2,
+                    value: data[key].value
                 });
             }
         }
 
-        // for (const key in data1) {
-        //     console.log(data1[key])
-        // }
-
-        console.log(data)
-        console.log(data1)
-
-
+        console.log(data1[2].level_2)
 
         // X axis
         var x = d3.scaleBand()
             .range([0, width])
             .domain(data1.map(function(d) {
-                return d.level_1;
+                return d.level_2;
             }))
             .padding(0.2);
         svg.append("g")
@@ -70,7 +60,7 @@
 
         // Add Y axis
         var y = d3.scaleLinear()
-            .domain([0, 20])
+            .domain([0, 20000])
             .range([(height-100), 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
@@ -81,7 +71,7 @@
             .enter()
             .append("rect")
             .attr("x", function(d) {
-                return x(d.level_1);
+                return x(d.level_2);
             })
             .attr("y", function(d) {
                 return y(d.value);
@@ -90,7 +80,7 @@
             .attr("height", function(d) {
                 return (height-100) - y(d.value);
             })
-            .attr("fill", "#3333FF")
+            .attr("fill", "#00cc33")
 
     })
 </script>
