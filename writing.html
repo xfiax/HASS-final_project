@@ -41,15 +41,17 @@
                 font: size 15px;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
-            img {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 700px;
-            }
+
         </style>
     </head> 
     <body>
+        <section class="header">
+            <div class="header-button" >
+              <a class="btn" href="https://data.gov.sg/"> Data resource</a>
+        
+            </div>
+          </section>
+
         <h1>
             Which Came First—Better Education or Better Health?
         </h1>
@@ -117,16 +119,24 @@
         <h2>
             Is this the end of the story? Are people with“university”qualifications more concerned for health issue?
         </h2>
+       
         <p>
-            Here’s still one more parameter to be considered: The big pricing range of different kinds of ALCOHOLIC BEVERAGES AND TOBACCO. Someone can spend 100 dollars on 10 packs of cigarettes, while someone else can spent 200 dollars on one pack. The person spends less money is the heavier smoker in this case. 
+           
         </p>
 
-        <img src="https://raw.githubusercontent.com/xfiax/HASS-final_project/main/CIGARETTE.jpeg">
-        <img src="https://raw.githubusercontent.com/xfiax/HASS-final_project/main/ALCHOLIC%20BEVERAGES.jpeg">
+        <div style="position: relative;">
+            <img src="https://raw.githubusercontent.com/xfiax/HASS-final_project/main/ALCHOLIC%20BEVERAGES.jpeg " width="558" height="297">
+            <div style="position: absolute; z-index: 2; left: 700px; top: 50px">
+                Here’s still one more parameter to be considered: The big pricing range of different kinds of ALCOHOLIC BEVERAGES AND TOBACCO. Someone can spend 100 dollars on 10 packs of cigarettes, while someone else can spent 200 dollars on one pack. The person spends less money is the heavier smoker in this case. 
+            </div>
+        </div>
 
-        <p>
-            Unfortunately, we don’t have the price dataset of the consumption. We couldn’t see the actual quantity, which indicates the actual level of “un-healthiness” each group of people. 
-        </p>
+        <div style="position:relative;">
+            <img src="https://raw.githubusercontent.com/xfiax/HASS-final_project/main/CIGARETTE.jpeg" width="558" height="297">
+            <div style="position: absolute; z-index: 2; left: 700px; top: 50px" >
+                Unfortunately, we don’t have the price dataset of the consumption. We couldn’t see the actual quantity, which indicates the actual level of “un-healthiness” each group of people. 
+            </div>
+        </div>
     </body>
 
 
