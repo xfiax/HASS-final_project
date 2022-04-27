@@ -31,8 +31,9 @@
     // Parse the Data
     d3.csv("https://raw.githubusercontent.com/xfiax/HASS-final_project/main/average-spent-highest-qualification-attained.csv", function(data) {
 
-
-        //console.log(data1[2].level_2)
+        for (const key in data) {
+          console.log(data[key].value)
+        }
 
         // X axis
         var x = d3.scaleBand()
